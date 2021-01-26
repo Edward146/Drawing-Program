@@ -24,9 +24,6 @@ rect(canvasX, canvasY, canvasWidth, canvasHeight);
 }
 
 void draw() {
-  
-
-  
   if (draw == true && mouseX>canvasX && mouseX<canvasX+canvasWidth && mouseY>canvasY && mouseY<canvasY+canvasHeight)
   stroke(ink);
   line(mouseX, mouseY, pmouseX, pmouseY);
@@ -34,19 +31,15 @@ void draw() {
 }
 
 void mousePressed() {
+  
   if (mouseX>canvasX && mouseX<canvasX+canvasWidth && mouseY>canvasY && mouseY<canvasY+canvasHeight) {
-      draw = true;
-    } else {
-      draw = false;
-    }
+        draw = true;
+  }
   }
 
 
 void mouseReleased() {
-  if (draw == true) {
-    draw = false;
-  } else {
     draw = false;
 
-  }
+  
 }
