@@ -8,6 +8,8 @@ float blueX, blueY;
 float purpleX, purpleY;
 color ink, black=#000000, white=#FFFFFF;
 Boolean draw=false;
+
+
 void setup() {
 fullScreen();
 canvasX = width*0;
@@ -22,20 +24,29 @@ rect(canvasX, canvasY, canvasWidth, canvasHeight);
 }
 
 void draw() {
+  
 
   
-  if (draw == true && mouseX>canvasX  && mouseX<canvasX+canvasWidth  && mouseY>canvasY && mouseY<canvasY+canvasHeight)
-  fill(ink);
+  if (draw == true && mouseX>canvasX && mouseX<canvasX+canvasWidth && mouseY>canvasY && mouseY<canvasY+canvasHeight)
+  stroke(ink);
   line(mouseX, mouseY, pmouseX, pmouseY);
 
 }
 
 void mousePressed() {
-  if (mouseX>canvasX  && mouseX<canvasX+canvasWidth  && mouseY>canvasY && mouseY<canvasY+canvasHeight) {
-    if (draw == false) {
+  if (mouseX>canvasX && mouseX<canvasX+canvasWidth && mouseY>canvasY && mouseY<canvasY+canvasHeight) {
       draw = true;
     } else {
       draw = false;
     }
+  }
+
+
+void mouseReleased() {
+  if (draw == true) {
+    draw = false;
+  } else {
+    draw = false;
+
   }
 }
