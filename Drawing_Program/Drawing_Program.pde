@@ -17,18 +17,18 @@ Variables();
 //
 rect(canvasX, canvasY, canvasWidth, canvasHeight);
 //
-}
-void draw() {
-  if (redInk == true) {
+if (redInk == true) {
     ink = red;
   }
   
   if (blackInk == true) {
     ink = black;
   }
+}
+void draw() {
   
   if (draw == true && mouseX>canvasX  && mouseX<canvasX+canvasWidth  && mouseY>canvasY && mouseY<canvasY+canvasHeight) {
-    stroke(ink);
+    fill(ink);
     line(mouseX, mouseY, pmouseX, pmouseY);
   }
   fill(red);
