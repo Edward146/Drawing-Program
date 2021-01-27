@@ -1,5 +1,6 @@
 // Global Variables
 float canvasX, canvasY, canvasWidth, canvasHeight;
+float underCanvasX, underCanvasY, underCanvasWidth, underCanvasHeight;
 float redX, redY, colourWidth, colourHeight;
 float orangeX, orangeY;
 float yellowX, yellowY;
@@ -8,14 +9,20 @@ float blueX, blueY;
 float purpleX, purpleY;
 float blackX, blackY;
 float whiteX, whiteY;
+float thinX, thinY, sideWidth, sideHeight;
+float mediumX, mediumY;
+float thickX, thickY;
+float thickestX, thickestY;
 color ink, black=#000000, white=#FFFFFF, red = #F50F0F, orange = #FF8D00, yellow = #FFF40D, green = #10E03E, blue = #1A99FF, purple = #9800FF;
 Boolean draw=false;
 Boolean blackInk=false, redInk=false, orangeInk=false, yellowInk=false, greenInk=false, blueInk=false, purpleInk=false, whiteInk = false; 
 void setup() {
+  background(black);
 fullScreen();
 Variables();
 //
 //
+rect(underCanvasX, underCanvasY, underCanvasWidth, underCanvasHeight);
 rect(canvasX, canvasY, canvasWidth, canvasHeight);
 //
 }
@@ -45,7 +52,7 @@ void draw() {
       ink = white;
   }
   
-  if (draw == true && mouseX>canvasX  && mouseX<canvasX+canvasWidth  && mouseY>canvasY && mouseY<canvasY+canvasHeight) {
+  if (draw == true && mouseX>underCanvasX  && mouseX<underCanvasX+underCanvasWidth  && mouseY>underCanvasY && mouseY<underCanvasY+underCanvasHeight) {
     stroke(ink);
     line(mouseX, mouseY, pmouseX, pmouseY);
   }
@@ -65,10 +72,13 @@ void draw() {
   rect(purpleX, purpleY, colourWidth, colourHeight);
   fill(white);
   rect(whiteX, whiteY, colourWidth, colourHeight);
-
+  rect(thinX, thinY, sideWidth, sideHeight);
+  rect(mediumX, mediumY, sideWidth, sideHeight);
+  rect(thickX, thickY, sideWidth, sideHeight);
+  rect(thickestX, thickestY, sideWidth, sideHeight);
 }
 void mousePressed() {
-  if ( mouseX>canvasX  && mouseX<canvasX+canvasWidth  && mouseY>canvasY && mouseY<canvasY+canvasHeight) {
+  if ( mouseX>underCanvasX  && mouseX<underCanvasX+underCanvasWidth  && mouseY>underCanvasY && mouseY<underCanvasY+underCanvasHeight) {
     if (draw == false) {
       draw = true;
     } else {
@@ -171,8 +181,26 @@ void mousePressed() {
   purpleInk=false;
   whiteInk=true;
   }
+  
+  
+  if (mouseX>thinX && mouseX<thinX+sideWidth && mouseY>thinY && mouseY<thinY+sideHeight) {
+    strokeWeight(1);
   }
   
+  
+  if (mouseX>mediumX && mouseX<mediumX+sideWidth && mouseY>mediumY && mouseY<mediumY+sideHeight) {
+    strokeWeight(4);
+  }
+  
+  
+  if (mouseX>thickX && mouseX<thickX+sideWidth && mouseY>thickY && mouseY<thickY+sideHeight) {
+    strokeWeight(8);
+  }
+  
+  if (mouseX>thickestX && mouseX<thickestX+sideWidth && mouseY>thickestY && mouseY<thickestY+sideHeight) {
+    strokeWeight(12);
+  }
+}
 void mouseReleased() {
   if (draw == true) {
     draw = false;

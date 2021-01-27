@@ -5,6 +5,11 @@ canvasY = height*1/9;
 canvasWidth = width*8/10;
 canvasHeight = height*7/9;
 //
+underCanvasX = width*1/90;
+underCanvasY = height*12/90;
+underCanvasWidth = width*70/90;
+underCanvasHeight = height*65/90;
+//
 blackX = width*0/10;
 blackY = height*0/9;
 redX = width*1/10;
@@ -24,6 +29,16 @@ purpleY = height*0/9;
 whiteX = width*8/10;
 whiteY = height*0/9;
 //
+thinX = width*8/10;
+thinY = height*1/9;
+sideWidth = width*2/10;
+sideHeight = height*1/9;
+mediumX = width*8/10;
+mediumY = height*2/9;
+thickX = width*8/10;
+thickY = height*3/9;
+thickestX = width*8/10;
+thickestY = height*4/9;
 //
 
 }
