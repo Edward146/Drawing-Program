@@ -27,13 +27,13 @@ void draw() {
     ink = black;
   }
   
-  
-  
   if (draw == true && mouseX>canvasX  && mouseX<canvasX+canvasWidth  && mouseY>canvasY && mouseY<canvasY+canvasHeight) {
     stroke(ink);
     line(mouseX, mouseY, pmouseX, pmouseY);
   }
+  fill(red);
   rect(redX, redY, colourWidth, colourHeight);
+  fill(black);
   rect(blackX, blackY, colourWidth, colourHeight);
 }
 
