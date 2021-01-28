@@ -10,14 +10,23 @@ float purpleX, purpleY;
 float blackX, blackY;
 float whiteX, whiteY;
 float thinX, thinY, sideWidth, sideHeight;
+float thinRectX, thinRectY, thinRectWidth, thinRectHeight;
 float mediumX, mediumY;
+float mediumRectX, mediumRectY, mediumRectWidth, mediumRectHeight;
 float thickX, thickY;
+float thickRectX, thickRectY, thickRectWidth, thickRectHeight;
 float thickestX, thickestY;
-color ink, black=#000000, white=#FFFFFF, red = #F50F0F, orange = #FF8D00, yellow = #FFF40D, green = #10E03E, blue = #1A99FF, purple = #9800FF;
+float thickestRectX, thickestRectY, thickestRectWidth, thickestRectHeight;
+float squareX, squareY;
+float circleX, circleY;
+float triangleX, triangleY;
+float shapesWidth, shapesHeight;
+color ink, black=#000000, white=#FFFFFF, red = #F50F0F, orange = #FF8D00, yellow = #FFF40D, green = #10E03E, blue = #1A99FF, purple = #9800FF, gray = #B2B2B2;
 Boolean draw=false;
 Boolean blackInk=false, redInk=false, orangeInk=false, yellowInk=false, greenInk=false, blueInk=false, purpleInk=false, whiteInk = false; 
+Boolean ellipse = false, square = false, triangle = false;
 void setup() {
-  background(black);
+  background(gray);
 fullScreen();
 Variables();
 //
@@ -72,11 +81,21 @@ void draw() {
   rect(purpleX, purpleY, colourWidth, colourHeight);
   fill(white);
   rect(whiteX, whiteY, colourWidth, colourHeight);
+  //
   rect(thinX, thinY, sideWidth, sideHeight);
+  rect();
   rect(mediumX, mediumY, sideWidth, sideHeight);
+  rect();
   rect(thickX, thickY, sideWidth, sideHeight);
+  rect();
   rect(thickestX, thickestY, sideWidth, sideHeight);
+  rect();
+  //
+  rect(squareX, squareY, sideWidth, sideHeight);
+  rect(circleX, circleY, sideWidth, sideHeight);
+  rect(triangleX, triangleY, sideWidth, sideHeight);
 }
+
 void mousePressed() {
   if ( mouseX>underCanvasX  && mouseX<underCanvasX+underCanvasWidth  && mouseY>underCanvasY && mouseY<underCanvasY+underCanvasHeight) {
     if (draw == false) {

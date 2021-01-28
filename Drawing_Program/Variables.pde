@@ -40,5 +40,29 @@ thickY = height*3/9;
 thickestX = width*8/10;
 thickestY = height*4/9;
 //
-
+squareX = width*8/10;
+squareY = height*5/9;
+circleX = width*8/10;
+circleY = height*6/9;
+triangleX = width*8/10;
+triangleY = height*7/9;
+shapesWidth = width*2/100;
+shapesHeight = height*2/100;
+//
+thinRectX = width*8/10;
+thinRectY = height*1/9;
+thinRectWidth = width*1/10;
+thinRectHeight = height*1/500;
+mediumRectX = width*;
+mediumRectY = height*;
+mediumRectWidth = width*;
+mediumRectHeight = height*;
+thickRectX = width*;
+thickRectY = height*;
+thickRectWidth = width*;
+thickRectHeight = height*;
+thickestRectX = width*;
+thickestRectY = height*;
+thickestRectWidth = width*;
+thickestRectHeight = height*;
 }
