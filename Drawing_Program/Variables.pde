@@ -44,10 +44,9 @@ squareX = width*8/10;
 squareY = height*5/9;
 circleX = width*8/10;
 circleY = height*6/9;
-triangleX = width*8/10;
-triangleY = height*7/9;
-shapesWidth = width*2/100;
-shapesHeight = height*2/100;
+lineX = width*8/10;
+lineY = height*7/9;
+shapesDiameter = width*2/100;
 //
 thinRectX = width*8/10;
 thinRectY = height*1/9;

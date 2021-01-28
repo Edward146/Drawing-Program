@@ -20,7 +20,8 @@ float thickestRectX, thickestRectY, thickestRectWidth, thickestRectHeight;
 float squareX, squareY;
 float circleX, circleY;
 float triangleX, triangleY;
-float shapesWidth, shapesHeight;
+float lineX, lineY;
+float shapesDiameter;
 color ink, black=#000000, white=#FFFFFF, red = #F50F0F, orange = #FF8D00, yellow = #FFF40D, green = #10E03E, blue = #1A99FF, purple = #9800FF, gray = #B2B2B2;
 Boolean draw=false;
 Boolean blackInk=false, redInk=false, orangeInk=false, yellowInk=false, greenInk=false, blueInk=false, purpleInk=false, whiteInk = false; 
@@ -64,15 +65,28 @@ void draw() {
   
   
   if (drawEllipse == true && mouseX>underCanvasX  && mouseX<underCanvasX+underCanvasWidth  && mouseY>underCanvasY && mouseY<underCanvasY+underCanvasHeight) {
+    draw = false;
+    drawSquare = false;
     fill(ink);
-    ellipse(mouseX, mouseY, shapesWidth, shapesHeight);
+    ellipse(mouseX, mouseY, shapesDiameter, shapesDiameter);
   }
     
     
   if (draw == true && mouseX>underCanvasX  && mouseX<underCanvasX+underCanvasWidth  && mouseY>underCanvasY && mouseY<underCanvasY+underCanvasHeight) {
+    drawSquare = false;
+    drawEllipse = false;
     stroke(ink);
     line(mouseX, mouseY, pmouseX, pmouseY);
   }
+    
+  if (drawSquare == true && mouseX>underCanvasX && mouseX<underCanvasX+underCanvasWidth && mouseY>underCanvasY && mouseY<underCanvasY+underCanvasHeight) { 
+    draw = false;
+    drawEllipse = false;
+    fill(ink);
+    rect(mouseX, mouseY, shapesDiameter, shapesDiameter);
+  }
+    
+    
   fill(black);
   rect(blackX, blackY, colourWidth, colourHeight);
   fill(red);
@@ -102,34 +116,49 @@ void draw() {
   rect(squareX, squareY, sideWidth, sideHeight);
   rect(circleX, circleY, sideWidth, sideHeight);
   rect(triangleX, triangleY, sideWidth, sideHeight);
+  rect(lineX, lineY, sideWidth, sideHeight);
 }
 
 void mousePressed() {
   if ( mouseX>underCanvasX  && mouseX<underCanvasX+underCanvasWidth  && mouseY>underCanvasY && mouseY<underCanvasY+underCanvasHeight) {
     if (draw == true) {
       draw = true;
-      square = false;
-      triangle = false;
-      ellipse = false;
+      drawSquare = false;
+      drawEllipse = false;
     }
     else if (ellipse == true) {
       drawEllipse = true;
-      square = false;
+      drawSquare = false;
       draw = false;
-      triangle = false;
     }
     else if (square = true) {
       drawSquare = true;
       draw = false;
-      ellipse = false;
-      triangle = false;
-    }
-     else if (triangle = true) {
-       drawTriangle = true;
       drawEllipse = false;
+    }
+    
+  }
+  
+  if (mouseX>lineX && mouseX<lineX+sideWidth && mouseY>lineY && mouseY<lineY+sideHeight) {
+    draw = true;
+    drawEllipse = false; 
+    drawSquare = false;
+  }
+   
+   
+      if ( mouseX>squareX && mouseX<squareX+sideWidth  && mouseY>squareY && mouseY<squareY+sideHeight ) {
+      drawSquare = true;
+      draw = false;
+      drawEllipse = false;
+      
+  }
+  
+  
+  if (mouseX>circleX && mouseX<circleX+sideWidth && mouseY>circleY && mouseY<circleY+sideHeight) {
       drawSquare = false;
       draw = false;
-    }
+      drawEllipse = true;
+      
   }
   
   
@@ -227,17 +256,6 @@ void mousePressed() {
   purpleInk=false;
   whiteInk=true;
   }
-  
-  
-  if ( mouseX>squareX && mouseX<squareX+shapesWidth  && mouseY>squareY && mouseY<squareY+shapesHeight ) {
-      square = true;
-      draw = false;
-      ellipse = false;
-      triangle = false;
-  }
-  
-  
-  
   
   
   if (mouseX>thinX && mouseX<thinX+sideWidth && mouseY>thinY && mouseY<thinY+sideHeight) {
