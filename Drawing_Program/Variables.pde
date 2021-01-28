@@ -53,6 +53,7 @@ thinRectX = width*8/10;
 thinRectY = height*1/9;
 thinRectWidth = width*1/10;
 thinRectHeight = height*1/500;
+/*
 mediumRectX = width*;
 mediumRectY = height*;
 mediumRectWidth = width*;
@@ -65,4 +66,5 @@ thickestRectX = width*;
 thickestRectY = height*;
 thickestRectWidth = width*;
 thickestRectHeight = height*;
+*/
 }

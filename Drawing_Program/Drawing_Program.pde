@@ -25,6 +25,7 @@ color ink, black=#000000, white=#FFFFFF, red = #F50F0F, orange = #FF8D00, yellow
 Boolean draw=false;
 Boolean blackInk=false, redInk=false, orangeInk=false, yellowInk=false, greenInk=false, blueInk=false, purpleInk=false, whiteInk = false; 
 Boolean ellipse = false, square = false, triangle = false;
+Boolean drawEllipse = false, drawSquare = false, drawTriangle = false;
 void setup() {
   background(gray);
 fullScreen();
@@ -61,6 +62,13 @@ void draw() {
       ink = white;
   }
   
+  
+  if (drawEllipse == true && mouseX>underCanvasX  && mouseX<underCanvasX+underCanvasWidth  && mouseY>underCanvasY && mouseY<underCanvasY+underCanvasHeight) {
+    fill(ink);
+    ellipse(mouseX, mouseY, shapesWidth, shapesHeight);
+  }
+    
+    
   if (draw == true && mouseX>underCanvasX  && mouseX<underCanvasX+underCanvasWidth  && mouseY>underCanvasY && mouseY<underCanvasY+underCanvasHeight) {
     stroke(ink);
     line(mouseX, mouseY, pmouseX, pmouseY);
@@ -83,13 +91,13 @@ void draw() {
   rect(whiteX, whiteY, colourWidth, colourHeight);
   //
   rect(thinX, thinY, sideWidth, sideHeight);
-  rect();
+  //rect();
   rect(mediumX, mediumY, sideWidth, sideHeight);
-  rect();
+  //rect();
   rect(thickX, thickY, sideWidth, sideHeight);
-  rect();
+  //rect();
   rect(thickestX, thickestY, sideWidth, sideHeight);
-  rect();
+  //rect();
   //
   rect(squareX, squareY, sideWidth, sideHeight);
   rect(circleX, circleY, sideWidth, sideHeight);
@@ -102,6 +110,21 @@ void mousePressed() {
       draw = true;
     } else {
       draw = false;
+    }
+  }
+  
+  
+  if ( mouseX>underCanvasX  && mouseX<underCanvasX+underCanvasWidth  && mouseY>underCanvasY && mouseY<underCanvasY+underCanvasHeight ) {
+    if (ellipse == true) {
+      drawEllipse = true;
+      square = false;
+    }
+    else if (square=true) {
+      drawSquare = true;
+      ellipse = false;
+    } else {
+      drawEllipse = false;
+      drawSquare = false;
     }
   }
   
@@ -219,9 +242,25 @@ void mousePressed() {
   if (mouseX>thickestX && mouseX<thickestX+sideWidth && mouseY>thickestY && mouseY<thickestY+sideHeight) {
     strokeWeight(12);
   }
-}
+  }
+
 void mouseReleased() {
   if (draw == true) {
     draw = false;
+}
+  else if (drawEllipse == true) {
+    drawEllipse = false;
+  }
+  else if (drawSquare == true) {
+    drawSquare = false;
+  }
+  else if (drawTriangle == true) {
+    drawTriangle = false;
+  }
+    else {
+    draw = false;
+    drawEllipse = false;
+    drawSquare = false;
+    drawTriangle = false;
 }
 }
