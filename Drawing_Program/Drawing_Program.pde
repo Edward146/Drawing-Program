@@ -106,25 +106,29 @@ void draw() {
 
 void mousePressed() {
   if ( mouseX>underCanvasX  && mouseX<underCanvasX+underCanvasWidth  && mouseY>underCanvasY && mouseY<underCanvasY+underCanvasHeight) {
-    if (draw == false) {
+    if (draw == true) {
       draw = true;
-    } else {
-      draw = false;
+      square = false;
+      triangle = false;
+      ellipse = false;
     }
-  }
-  
-  
-  if ( mouseX>underCanvasX  && mouseX<underCanvasX+underCanvasWidth  && mouseY>underCanvasY && mouseY<underCanvasY+underCanvasHeight ) {
-    if (ellipse == true) {
+    else if (ellipse == true) {
       drawEllipse = true;
       square = false;
+      draw = false;
+      triangle = false;
     }
-    else if (square=true) {
+    else if (square = true) {
       drawSquare = true;
+      draw = false;
       ellipse = false;
-    } else {
+      triangle = false;
+    }
+     else if (triangle = true) {
+       drawTriangle = true;
       drawEllipse = false;
       drawSquare = false;
+      draw = false;
     }
   }
   
@@ -225,6 +229,17 @@ void mousePressed() {
   }
   
   
+  if ( mouseX>squareX && mouseX<squareX+shapesWidth  && mouseY>squareY && mouseY<squareY+shapesHeight ) {
+      square = true;
+      draw = false;
+      ellipse = false;
+      triangle = false;
+  }
+  
+  
+  
+  
+  
   if (mouseX>thinX && mouseX<thinX+sideWidth && mouseY>thinY && mouseY<thinY+sideHeight) {
     strokeWeight(1);
   }
@@ -242,7 +257,7 @@ void mousePressed() {
   if (mouseX>thickestX && mouseX<thickestX+sideWidth && mouseY>thickestY && mouseY<thickestY+sideHeight) {
     strokeWeight(12);
   }
-  }
+}
 
 void mouseReleased() {
   if (draw == true) {
